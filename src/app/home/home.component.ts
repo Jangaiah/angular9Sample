@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TestService } from '../test.service';
 
@@ -7,15 +7,26 @@ import { TestService } from '../test.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnChanges {
+  name:string= "King";
+  constructor(private router:Router,private route:ActivatedRoute,private testS:TestService) {
+    console.log("Home Constructor")
+   }
 
-  constructor(private router:Router,private route:ActivatedRoute,private testS:TestService) { }
+  ngOnInit(){
+    console.log("Home OnInit");
+  }
 
-  ngOnInit(): void {
+  ngOnChanges(){
+    console.log("Home OnChanges");
   }
 
   goToChild1(){
     this.router.navigate(['/home/child1']);
+  }
+  
+  changeName(){
+    this.name = "Jangaiah Paneti"
   }
 
 }

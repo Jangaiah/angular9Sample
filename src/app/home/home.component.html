@@ -1,4 +1,7 @@
 <p>home works!</p>
+<p>{{name}}</p>
+<button (click)='changeName()'>Change Name</button>
 <button (click)='goToChild1()'>Child1</button>
 <a [routerLink] = "['child2']">Child2</a>
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
+<app-child1 test="Testing child"></app-child1>
